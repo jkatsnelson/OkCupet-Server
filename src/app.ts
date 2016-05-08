@@ -1,15 +1,36 @@
 /// <reference path="../typings/main.d.ts" />
 
-import * as express from "express";
-var app = express();
+import * as express from 'express';
+const app = express();
+import * as bodyParser from 'body-parser';
 
-app.get('/', function(req, res) {
-  res.send('Hello World!');
+import DAO = require('./in-memory-dao');
+
+// configure our app to use bodyParser(it let us get the json data from a POST)
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+const port: number = process.env.PORT || 8888;
+const router = express.Router();
+const userDAO: DAO.InMemoryUserDAO = new DAO.InMemoryUserDAO();
+
+router.get('/', function(req, res) {
+  console.log(req.query);
+  res.json(userDAO.read(req.query.id));
+});
+router.post('/', function(req, res) {
+  res.json(userDAO.create(req.body));
+});
+router.put('/', function(req, res) {
+  res.json({ result: userDAO.update(req.body) });
+});
+router.delete('/', function(req, res) {
+  res.json({ result: userDAO.delete(req.query.id) });
 });
 
-var server = app.listen(3000, function() {
-  var host: string = server.address().address;
-  var port: number = server.address().port;
+// prefixed all routes with /api
+app.use('/api', router);
 
-  console.log('Example app listening at http://%s:%s', host, port);
-});
+app.listen(port);
+console.log('http://127.0.0.1:' + port + '/api');
+
