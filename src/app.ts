@@ -15,7 +15,11 @@ const router = express.Router();
 const petDAO: DAO.InMemoryPetDAO = new DAO.InMemoryPetDAO();
 
 router.get('/', function(req, res) {
-  res.json(petDAO.read(req.query.id));
+  if (req.query.id) {
+    res.json(petDAO.read(req.query.id));
+  } else {
+    res.json(petDAO.readAll())
+  }
 });
 router.post('/', function(req, res) {
   res.json(petDAO.create(req.body));

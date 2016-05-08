@@ -6,5 +6,6 @@ module DAO {
     read(id: number): T;
     update(t: T): boolean;
     delete(id: number): boolean;
+    readAll(): { [id: number]: Model.Pet; };
   }
 }

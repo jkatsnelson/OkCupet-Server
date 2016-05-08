@@ -22,6 +22,10 @@ export class InMemoryPetDAO implements DAO.DAO<Model.Pet> {
         return this.pets[id];
     }
 
+    readAll() {
+        return this.pets;
+    }
+
     update(pet: Model.Pet) {
         if (this.pets[pet.id] === null) {
             return false;
