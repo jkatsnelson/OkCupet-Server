@@ -19,22 +19,6 @@ OkCupet's server. It's high performant, enterprise ready, and scalable.
 
 In one tab, run `webpack -w`
 In another tab, run `nodemon bundle.js`
-The nodemon tab will be your actual server :)
+The nodemon tab will be your API.
 
-# Make this app return pets!
-
-# After it returns pets...
-
-How do you make your DAO access all the pets vs just one?
-
-One option:
-
-Make a readAll method
-
-Another option:
-
-Modify the read method so that the id is optional, and if there is no id, return the whole list of pets.
-If you want some information on how to properly type the interface for this use case, go here: https://www.typescriptlang.org/docs/handbook/advanced-types.html
-
-Try making it send the DAO as-is first, and then try refactoring the DAO to be able to send a list of pets as an array instead of an object
-Refactor the DAO to store in both formats.
+In yet another tab, run `npm run autotest` -- this will keep your mocha tests constantly running.
