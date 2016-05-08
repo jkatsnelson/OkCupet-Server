@@ -4,7 +4,9 @@
   "description": "OkCupet's server. It's high performant, enterprise ready, and scalable.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "tsc test/**.ts --module commonjs",
+    "test": "mocha test/**.js",
+    "autotest": "chokidar 'test/**.ts' -c 'npm run test'"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/jkatsnelson/OkCupet-Server#readme",
   "devDependencies": {
+    "chai": "3.5.0",
     "json-loader": "0.5.4",
     "ts-loader": "0.8.2"
   },
