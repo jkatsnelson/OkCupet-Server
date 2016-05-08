@@ -35,3 +35,6 @@ Another option:
 
 Modify the read method so that the id is optional, and if there is no id, return the whole list of pets.
 If you want some information on how to properly type the interface for this use case, go here: https://www.typescriptlang.org/docs/handbook/advanced-types.html
+
+Try making it send the DAO as-is first, and then try refactoring the DAO to be able to send a list of pets as an array instead of an object
+Refactor the DAO to store in both formats.

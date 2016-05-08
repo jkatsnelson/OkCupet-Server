@@ -1,5 +1,5 @@
 /// <reference path="./dao.ts" />
-
+import _ = require('lodash');
 export class InMemoryPetDAO implements DAO.DAO<Model.Pet> {
     private id: number;
     private pets: { [id: number]: Model.Pet; };
@@ -23,7 +23,13 @@ export class InMemoryPetDAO implements DAO.DAO<Model.Pet> {
     }
 
     readAll() {
-        return this.pets;
+        // this is the context of 'this' inside the map function!
+        return _.map(_.keys(this.pets), (petIndex) => {
+            // "this" doesn't refer to this function context -- it refers to
+            // the parent scope, because of using the 'fat arrow' syntax for
+            // function calling.
+            return this.pets[petIndex];
+        });
     }
 
     update(pet: Model.Pet) {
