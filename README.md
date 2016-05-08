@@ -4,7 +4,7 @@ OkCupet's server. It's high performant, enterprise ready, and scalable.
 # Global dependencies:
 
 * `npm install -g typings`
-    * Typings is the new TSD. Run typings install to install the typings dependencies.
+    * Typings is the new TSD. Normally, you run `typings install` to install the type dependencies for stuff like express. But, in this case, I commited the typings so that nothing weird happens :)
 
 * `npm install -g webpack`
     * Webpack will compile the app.
