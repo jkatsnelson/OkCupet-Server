@@ -34,3 +34,7 @@ node_modules
 
 # webpack bundle
 bundle.js
+
+# js builds
+src/**.js
+test/**.js
