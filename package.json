@@ -1,0 +1,26 @@
+{
+  "name": "okcupet-server",
+  "version": "1.0.0",
+  "description": "OkCupet's server. It's high performant, enterprise ready, and scalable.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkatsnelson/OkCupet-Server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkatsnelson/OkCupet-Server/issues"
+  },
+  "homepage": "https://github.com/jkatsnelson/OkCupet-Server#readme",
+  "devDependencies": {
+    "json-loader": "0.5.4",
+    "ts-loader": "0.8.2"
+  },
+  "dependencies": {
+    "express": "4.13.4"
+  }
+}
