@@ -1,40 +1,40 @@
 /// <reference path="./dao.ts" />
 
-export class InMemoryUserDAO implements DAO.DAO<Model.User> {
+export class InMemoryPetDAO implements DAO.DAO<Model.Pet> {
     private id: number;
-    private users: { [id: number]: Model.User; };
+    private pets: { [id: number]: Model.Pet; };
 
     constructor() {
         this.id = 1;
-        this.users = {
-            0: { id: 0, firstname: 'first', lastname: 'last', age: 42 }
+        this.pets = {
+            0: { id: 0, name: 'Maximus Meridius Decimus III', age: 2 }
         };
     }
 
-    create(user: Model.User) {
-        user.id = this.id;
+    create(pet: Model.Pet) {
+        pet.id = this.id;
         this.id++;
-        this.users[user.id] = user;
-        return user;
+        this.pets[pet.id] = pet;
+        return pet;
     }
 
     read(id: number) {
-        return this.users[id];
+        return this.pets[id];
     }
 
-    update(user: Model.User) {
-        if (this.users[user.id] === null) {
+    update(pet: Model.Pet) {
+        if (this.pets[pet.id] === null) {
             return false;
         }
-        this.users[user.id] = user;
+        this.pets[pet.id] = pet;
         return true;
     }
 
     delete(id: number) {
-        if (this.users[id] === null) {
+        if (this.pets[id] === null) {
             return false;
         }
-        this.users[id] = null;
+        this.pets[id] = null;
         return true;
     }
 }

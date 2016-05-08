@@ -12,20 +12,19 @@ app.use(bodyParser.json());
 
 const port: number = process.env.PORT || 8888;
 const router = express.Router();
-const userDAO: DAO.InMemoryUserDAO = new DAO.InMemoryUserDAO();
+const petDAO: DAO.InMemoryPetDAO = new DAO.InMemoryPetDAO();
 
 router.get('/', function(req, res) {
-  console.log(req.query);
-  res.json(userDAO.read(req.query.id));
+  res.json(petDAO.read(req.query.id));
 });
 router.post('/', function(req, res) {
-  res.json(userDAO.create(req.body));
+  res.json(petDAO.create(req.body));
 });
 router.put('/', function(req, res) {
-  res.json({ result: userDAO.update(req.body) });
+  res.json({ result: petDAO.update(req.body) });
 });
 router.delete('/', function(req, res) {
-  res.json({ result: userDAO.delete(req.query.id) });
+  res.json({ result: petDAO.delete(req.query.id) });
 });
 
 // prefixed all routes with /api

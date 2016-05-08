@@ -3,9 +3,8 @@ module Model {
     id?: number;
   }
 
-  export interface User extends Identifiable {
-    firstname: string;
-    lastname: string;
+  export interface Pet extends Identifiable {
+    name: string;
     age: number;
   }
 }

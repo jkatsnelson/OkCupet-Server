@@ -1,5 +1,5 @@
 /// <reference path="./model.ts" />
-
+// data access object
 module DAO {
   export interface DAO<T extends Model.Identifiable> {
     create(t: T): T;
