@@ -14,20 +14,20 @@ const port: number = process.env.PORT || 8888;
 const router = express.Router();
 const petDAO: DAO.InMemoryPetDAO = new DAO.InMemoryPetDAO();
 
-router.get('/', function(req, res) {
+router.get('/pets', function(req, res) {
   if (req.query.id) {
     res.json(petDAO.read(req.query.id));
   } else {
     res.json(petDAO.readAll())
   }
 });
-router.post('/', function(req, res) {
+router.post('/pets', function(req, res) {
   res.json(petDAO.create(req.body));
 });
-router.put('/', function(req, res) {
+router.put('/pets', function(req, res) {
   res.json({ result: petDAO.update(req.body) });
 });
-router.delete('/', function(req, res) {
+router.delete('/pets', function(req, res) {
   res.json({ result: petDAO.delete(req.query.id) });
 });
 
